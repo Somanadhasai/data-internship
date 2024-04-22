@@ -1,0 +1,36 @@
+survey_data = {
+    "District1": {
+        "Mandal1": {
+            "Village1": ["Survey1", "Survey2", "Survey3"],
+            "Village2": ["Survey4", "Survey5"]
+        },
+        "Mandal2": {
+            "Village3": ["Survey6", "Survey7"],
+            "Village4": ["Survey8"]
+        }
+    },
+    "District2": {
+        "Mandal3": {
+            "Village5": ["Survey9", "Survey10"],
+            "Village6": ["Survey11", "Survey12"]
+        },
+        "Mandal4": {
+            "Village7": ["Survey13"],
+            "Village8": ["Survey14", "Survey15"]
+        }
+    }
+}
+
+def print_survey_numbers(district, mandal, village):
+    if district in survey_data and mandal in survey_data[district] and village in survey_data[district][mandal]:
+        surveys = survey_data[district][mandal][village]
+        print(f"Survey numbers for {district}, {mandal}, {village}:")
+        for survey in surveys:
+            print(survey)
+    else:
+        print("No survey numbers found for the provided location.")
+
+district = input("Enter the district: ")
+mandal = input("Enter the mandal: ")
+village = input("Enter the village: ")
+print_survey_numbers(district, mandal, village)
